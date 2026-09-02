@@ -1,12 +1,12 @@
 // Iron Log service worker: app shell precache + cache-first for photos and fonts.
 // Bump VERSION on every deploy so clients pick up the new shell.
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL = "ironlog-shell-" + VERSION;
 const RUNTIME = "ironlog-runtime";
 const PRECACHE = [
   "./", "./index.html", "./manifest.webmanifest",
-  "./css/app.css?v=2",
-  "./js/app.js?v=2", "./js/store.js", "./js/cloud.js", "./js/config.js?v=3", "./js/program.js", "./js/ui.js", "./js/timer.js", "./js/charts.js",
+  "./css/app.css?v=4",
+  "./js/app.js?v=4", "./js/store.js", "./js/cloud.js", "./js/config.js?v=3", "./js/program.js", "./js/ui.js", "./js/timer.js", "./js/charts.js",
   "./js/views/train.js", "./js/views/week.js", "./js/views/progress.js", "./js/views/me.js",
   "./img/ex/_meta.json", "./img/icon-192.png", "./img/icon-512.png",
 ];

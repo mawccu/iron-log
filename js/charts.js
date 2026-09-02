@@ -76,7 +76,7 @@ export function lineChart(cv, points, opts = {}) {
       const last = i === points.length - 1, hov = i === hover;
       const r = last || hov ? 5 : 3.5;
       ctx.beginPath(); ctx.arc(X(i), Y(p.y), r, 0, Math.PI * 2);
-      ctx.fillStyle = css("--panel") || "#171A21"; ctx.fill();
+      ctx.fillStyle = css("--card") || "#FFFFFF"; ctx.fill();
       ctx.lineWidth = 2; ctx.strokeStyle = color; ctx.stroke();
       if (last || hov) { ctx.beginPath(); ctx.arc(X(i), Y(p.y), 2, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill(); }
     });

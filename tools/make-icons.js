@@ -34,7 +34,7 @@ function png(size, paint) {
   return Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]), chunk("IHDR", ihdr), chunk("IDAT", zlib.deflateSync(raw, { level: 9 })), chunk("IEND", Buffer.alloc(0))]);
 }
 
-const INK = [10, 11, 15], BLUE = [198, 245, 66], BLUE2 = [173, 220, 52], PLATE = [243, 245, 249];
+const INK = [43, 92, 230], BLUE = [255, 255, 255], BLUE2 = [219, 231, 255], PLATE = [255, 255, 255];
 const lerp = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
 
 // Barbell drawn in normalized coordinates (0..1). Rounded rects with soft edges.
@@ -48,7 +48,7 @@ function paintIcon(x, y, size, { maskable = false, rounded = true }) {
   // background: rounded square unless maskable (full bleed)
   let bgA = 1;
   if (!maskable && rounded) { const d = inRR(u, v, 0.5, 0.5, 1, 1, 0.22); bgA = Math.max(0, Math.min(1, -d / px)); if (bgA <= 0) return [0, 0, 0, 0]; }
-  const grad = lerp(INK, [22, 26, 34], v);
+  const grad = lerp(INK, [30, 73, 200], v);
   let col = grad;
   const s = maskable ? 0.72 : 0.84; // barbell scale
   const parts = [
