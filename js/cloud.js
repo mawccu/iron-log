@@ -1,7 +1,7 @@
 // Supabase mirror. Local state is the source of truth for the UI; this module
 // pushes queued writes and pulls the user's rows on sign-in.
 
-import { CONFIG } from "./config.js";
+import { CONFIG } from "./config.js?v=3";
 import { S, bus, emit, save, dequeue, mergeFromCloud } from "./store.js";
 
 export const cloud = {
