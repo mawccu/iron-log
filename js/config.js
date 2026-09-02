@@ -1,7 +1,8 @@
-// Supabase project keys. The anon key is safe to ship in a static site because
-// every table is protected by row-level security (see setup.sql).
-// Leave both empty to run in local-only mode (data stays in this browser).
+// Supabase project keys. The publishable key is safe to ship in a static site:
+// every table is protected by row-level security (see setup.sql), so a signed-in
+// user can only ever read or write their own rows.
+// Project: "gym" (ejjikuppoupqworvjoeq). Leave both empty to run local-only.
 export const CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://ejjikuppoupqworvjoeq.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_lMOxoC4StAqdCPg59ZnLKg_uPX5p8WK",
 };
