@@ -74,9 +74,10 @@ export function render(main) {
 
   /* charts */
   const fmtKg = v => (Math.round(v * 10) / 10) + "";
-  lineChart(main.querySelector("#exChart"), series.map(p => ({ x: fmtShort(p.date), y: metric === "top" ? p.top : p.e1rm, tip: (metric === "top" ? "reps " + p.reps : "top " + p.top + " kg × " + p.reps) })), { fmt: fmtKg, empty: "No sessions logged for " + rx.name });
-  barChart(main.querySelector("#volChart"), wv.map(w => ({ x: fmtShort(w.week), y: Math.round(w.volume), tip: w.sessions + " sessions · " + w.cardio + " cardio", mark: w.sessions ? String(w.sessions) : "" })), { fmt: v => (v >= 1000 ? (v / 1000).toFixed(v % 1000 ? 1 : 0) + "t" : String(v)) });
-  lineChart(main.querySelector("#bwChart"), bw.map(p => ({ x: fmtShort(p.date), y: p.y })), { fmt: v => fmtKg(v) + "", empty: "No bodyweight entries yet" });
+  const VOLT = "#C6F542", BLUE = "#4E9BFF", AMBER = "#FFB84D";
+  lineChart(main.querySelector("#exChart"), series.map(p => ({ x: fmtShort(p.date), y: metric === "top" ? p.top : p.e1rm, tip: (metric === "top" ? "reps " + p.reps : "top " + p.top + " kg × " + p.reps) })), { fmt: fmtKg, color: VOLT, empty: "No sessions logged for " + rx.name });
+  barChart(main.querySelector("#volChart"), wv.map(w => ({ x: fmtShort(w.week), y: Math.round(w.volume), tip: w.sessions + " sessions · " + w.cardio + " cardio", mark: w.sessions ? String(w.sessions) : "" })), { color: BLUE, fmt: v => (v >= 1000 ? (v / 1000).toFixed(v % 1000 ? 1 : 0) + "t" : String(v)) });
+  lineChart(main.querySelector("#bwChart"), bw.map(p => ({ x: fmtShort(p.date), y: p.y })), { color: AMBER, fmt: v => fmtKg(v) + "", empty: "No bodyweight entries yet" });
 }
 
 export function bind(main) {
